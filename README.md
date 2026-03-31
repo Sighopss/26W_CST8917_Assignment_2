@@ -1,11 +1,6 @@
 # CST8917 – Serverless Applications
 
 ## Assignment 2 – Serverless Service Alternatives Report
-
-**Due:** Week 15 (August 15, 2025) – Submit GitHub repository link via Brightspace by 11:59 PM  
-**Weight:** 10% of Final Grade  
-**Type:** Individual Assignment  
-
 ---
 
 ## Objective
