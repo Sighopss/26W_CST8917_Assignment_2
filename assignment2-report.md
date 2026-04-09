@@ -14,21 +14,21 @@ Throughout this course we worked with a bunch of Azure serverless services to bu
 
 ### Overview
 
-Azure Functions is Microsoft's serverless compute offering — you write a function, pick a trigger, and Azure handles the rest. AWS Lambda is basically the same idea on Amazon's side, and Google Cloud Functions does the same thing on GCP. All three let you run code without managing servers.
+Azure Functions is Microsoft's serverless compute offering. You write a function, pick a trigger, and Azure handles the rest. AWS Lambda is basically the same idea on Amazon's side, and Google Cloud Functions does the same thing on GCP. All three let you run code without managing servers.
 
 | Aspect | Azure Functions | AWS Lambda | Google Cloud Functions |
 |---|---|---|---|
 | Triggers | HTTP, Timer, Blob, Queue, Event Grid, Service Bus, Cosmos DB, etc. | API Gateway, S3, DynamoDB, SQS, SNS, EventBridge, Kinesis, etc. | HTTP, Pub/Sub, Cloud Storage, Firestore, Firebase events |
 | Language Support | C#, JavaScript, Python, Java, PowerShell, TypeScript | Python, Node.js, Java, Go, .NET, Ruby, custom runtimes | Node.js, Python, Go, Java, .NET, Ruby, PHP |
-| Bindings | Input/output bindings to many Azure services (built-in) | No native binding concept — you use the SDK directly | No native bindings — SDK-based integration |
+| Bindings | Input/output bindings to many Azure services (built-in) | No native binding concept, you use the SDK directly | No native bindings, SDK-based integration |
 | Max Timeout | 10 min (Consumption), unlimited (Premium/Dedicated) | 15 minutes max | 9 min (1st gen), 60 min (2nd gen) |
 | Scaling | Automatic, event-driven | Automatic, concurrency-based | Automatic, request-based |
 
 ### Integration Options
 
-Azure Functions plugs right into the Azure ecosystem — Logic Apps, Event Grid, Service Bus, etc. It also works with Azure DevOps and GitHub Actions for CI/CD.
+Azure Functions plugs right into the Azure ecosystem, including Logic Apps, Event Grid, Service Bus, etc. It also works with Azure DevOps and GitHub Actions for CI/CD.
 
-Lambda integrates tightly with the whole AWS stack. API Gateway, Step Functions, S3, DynamoDB — it's all connected. CI/CD is usually done through CodePipeline or third-party tools.
+Lambda integrates tightly with the whole AWS stack. API Gateway, Step Functions, S3, DynamoDB, it's all connected. CI/CD is usually done through CodePipeline or third-party tools.
 
 Cloud Functions works well with other GCP services like Pub/Sub, Firestore, and Cloud Run. For CI/CD you'd typically use Cloud Build.
 
@@ -52,7 +52,7 @@ Azure Functions has the nicest developer experience if you're already in the Mic
 
 ### Overview
 
-Durable Functions is an extension of Azure Functions that lets you write stateful workflows in code — things like function chaining, fan-out/fan-in, and human interaction patterns. AWS Step Functions does something similar using state machines defined in JSON (Amazon States Language). GCP Workflows is Google's answer, using YAML-based workflow definitions.
+Durable Functions is an extension of Azure Functions that lets you write stateful workflows in code, things like function chaining, fan-out/fan-in, and human interaction patterns. AWS Step Functions does something similar using state machines defined in JSON (Amazon States Language). GCP Workflows is Google's answer, using YAML-based workflow definitions.
 
 | Aspect | Durable Functions | AWS Step Functions | GCP Workflows |
 |---|---|---|---|
@@ -78,7 +78,7 @@ Durable Functions charges based on the underlying function executions and storag
 
 ### Strengths & Weaknesses
 
-Durable Functions is great if you want to define workflows in actual code rather than config files — feels more natural for developers. Step Functions has the best visual tooling and the broadest service integration. GCP Workflows is the newest and simplest but doesn't have as many features yet.
+Durable Functions is great if you want to define workflows in actual code rather than config files, and it feels more natural for developers. Step Functions has the best visual tooling and the broadest service integration. GCP Workflows is the newest and simplest but doesn't have as many features yet.
 
 ---
 
@@ -86,7 +86,7 @@ Durable Functions is great if you want to define workflows in actual code rather
 
 ### Overview
 
-Logic Apps is Azure's low-code workflow automation tool. It's designed for integration scenarios — connecting SaaS apps, enterprise systems, and Azure services with a visual designer. AWS doesn't have a perfect 1:1 equivalent, but Step Functions combined with EventBridge is the closest. On GCP, Workflows plus Application Integration covers similar ground.
+Logic Apps is Azure's low-code workflow automation tool. It's designed for integration scenarios, connecting SaaS apps, enterprise systems, and Azure services with a visual designer. AWS doesn't have a perfect 1:1 equivalent, but Step Functions combined with EventBridge is the closest. On GCP, Workflows plus Application Integration covers similar ground.
 
 | Aspect | Azure Logic Apps | AWS Step Functions + EventBridge | GCP Workflows + Application Integration |
 |---|---|---|---|
@@ -97,7 +97,7 @@ Logic Apps is Azure's low-code workflow automation tool. It's designed for integ
 
 ### Integration Options
 
-Logic Apps shines here — the connector library is massive. You can hook into Office 365, Dynamics, Salesforce, SAP, and hundreds of other services without writing code. AWS covers a lot through EventBridge partner integrations but it's more developer-oriented. GCP's Application Integration is still growing its connector ecosystem.
+Logic Apps shines here. The connector library is massive. You can hook into Office 365, Dynamics, Salesforce, SAP, and hundreds of other services without writing code. AWS covers a lot through EventBridge partner integrations but it's more developer-oriented. GCP's Application Integration is still growing its connector ecosystem.
 
 ### Monitoring & Observability
 
@@ -142,7 +142,7 @@ Service Bus charges based on operations and tier (Basic, Standard, Premium). SQS
 
 ### Strengths & Weaknesses
 
-Service Bus has the richest feature set — sessions, transactions, and scheduled messages are things the others don't fully match. SQS/SNS is battle-tested and simple to use but you need two services to cover what Service Bus does alone. Pub/Sub is elegant and handles high throughput well, plus the larger message size limit is nice.
+Service Bus has the richest feature set. Sessions, transactions, and scheduled messages are things the others don't fully match. SQS/SNS is battle-tested and simple to use but you need two services to cover what Service Bus does alone. Pub/Sub is elegant and handles high throughput well, plus the larger message size limit is nice.
 
 ---
 
@@ -150,7 +150,7 @@ Service Bus has the richest feature set — sessions, transactions, and schedule
 
 ### Overview
 
-Event Grid is Azure's event routing service — it delivers events from Azure services (or custom sources) to handlers like Functions, Logic Apps, or webhooks. EventBridge is the AWS equivalent, and Eventarc is Google's version.
+Event Grid is Azure's event routing service. It delivers events from Azure services (or custom sources) to handlers like Functions, Logic Apps, or webhooks. EventBridge is the AWS equivalent, and Eventarc is Google's version.
 
 | Aspect | Azure Event Grid | Amazon EventBridge | Google Eventarc |
 |---|---|---|---|
@@ -176,7 +176,7 @@ Event Grid charges per million operations ($0.60/million). EventBridge charges p
 
 ### Strengths & Weaknesses
 
-Event Grid is straightforward and cheap. EventBridge has the best third-party integration story and the archive/replay feature is really useful for debugging. Eventarc is the simplest but also the most limited — it's still relatively new.
+Event Grid is straightforward and cheap. EventBridge has the best third-party integration story and the archive/replay feature is really useful for debugging. Eventarc is the simplest but also the most limited, it's still relatively new.
 
 ---
 
@@ -184,7 +184,7 @@ Event Grid is straightforward and cheap. EventBridge has the best third-party in
 
 ### Overview
 
-Event Hubs is Azure's big data streaming platform — think real-time event ingestion at massive scale. Kinesis is the AWS equivalent (specifically Kinesis Data Streams). On GCP, Pub/Sub handles streaming use cases too, though it's architecturally different.
+Event Hubs is Azure's big data streaming platform, think real-time event ingestion at massive scale. Kinesis is the AWS equivalent (specifically Kinesis Data Streams). On GCP, Pub/Sub handles streaming use cases too, though it's architecturally different.
 
 | Aspect | Azure Event Hubs | Amazon Kinesis Data Streams | Google Cloud Pub/Sub |
 |---|---|---|---|
@@ -211,7 +211,7 @@ Event Hubs charges by throughput units and ingress events. Kinesis charges per s
 
 ### Strengths & Weaknesses
 
-Event Hubs has great Kafka compatibility which makes migration easier. Kinesis is powerful but the shard management can be annoying — you have to think about capacity planning. Pub/Sub is the easiest to use since it auto-scales without partition/shard management, but you get less control over ordering and partitioning.
+Event Hubs has great Kafka compatibility which makes migration easier. Kinesis is powerful but the shard management can be annoying, you have to think about capacity planning. Pub/Sub is the easiest to use since it auto-scales without partition/shard management, but you get less control over ordering and partitioning.
 
 ---
 
