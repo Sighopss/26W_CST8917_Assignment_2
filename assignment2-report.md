@@ -230,6 +230,6 @@ Event Hubs has great Kafka compatibility which makes migration easier. Kinesis i
 
 ## Conclusion
 
-Each cloud provider has a solid serverless offering, but they all have different strengths. Azure has the most cohesive ecosystem if you're already using Microsoft tools — the bindings in Functions and the connector library in Logic Apps are genuinely time-saving. AWS has the most mature and battle-tested services with the widest adoption, which means more community resources and third-party support. GCP tends to be the simplest to get started with and has some elegant design choices (like Pub/Sub's automatic scaling), but the ecosystem isn't as deep as the other two yet.
+Each cloud provider has a solid serverless offering, but they all have different strengths. Azure has the most cohesive ecosystem if you're already using Microsoft tools  the bindings in Functions and the connector library in Logic Apps are genuinely time-saving. AWS has the most mature and battle-tested services with the widest adoption, which means more community resources and third-party support. GCP tends to be the simplest to get started with and has some elegant design choices (like Pub/Sub's automatic scaling), but the ecosystem isn't as deep as the other two yet.
 
 For most use cases, you could build equivalent architectures on any of the three platforms. The choice usually comes down to what ecosystem you're already invested in and what specific features matter most for your project.
